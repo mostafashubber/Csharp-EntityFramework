@@ -20,20 +20,7 @@ namespace IT_Company
             
         }
 
-        public void clearTextBox()
-        {
-            textBoxAddFirstName.Text = "";
-            textBoxAddLastName.Text = "";
-            textBoxAddAdress.Text = "";
-            textBoxAddPostalCode.Text = "";
-            textBoxAddCity.Text = "";
-            textBoxAddCountry.Text = "";
-            textBoxAddEmail.Text = "";
-            textBoxAddPhone.Text = "";
-           
-
-           
-        }
+      
 
         private void tabPage1_Click(object sender, EventArgs e)
         {
@@ -156,9 +143,9 @@ namespace IT_Company
                 }
             }
 
-            catch(Exception)
+            catch(Exception )
             {
-                MessageBox.Show("You have to fill all textboxes");
+                MessageBox.Show("You have to select all textboxes");
                 
             }
 
@@ -204,7 +191,7 @@ namespace IT_Company
             }
             catch (Exception)
             {
-                MessageBox.Show("You must select all textboxes");
+                MessageBox.Show("You have to select all textboxes");
             }
         }
 
@@ -271,7 +258,7 @@ namespace IT_Company
             }
             catch (Exception)
             {
-                MessageBox.Show("Invalid value");
+                MessageBox.Show("Incorrect ID");
             }
 
         }
@@ -319,9 +306,9 @@ namespace IT_Company
 
             }
 
-            catch(Exception ex)
+            catch(Exception )
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Incorrect ID");
             }
         }
 
@@ -521,6 +508,7 @@ namespace IT_Company
                 var query = from emp in db.Employees
                             join dep in db.Department
                             on emp.DepartmentID equals dep.DepartmentID
+                            orderby emp.First_Name
                              select new
                             {
                                 emp.EmployeeID,
